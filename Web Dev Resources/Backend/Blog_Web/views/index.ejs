@@ -1,0 +1,52 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+    <h1 class="heading">🚀 Welcome to Blog site 📝</h1>
+    
+    <div class="statusDiv">
+        <h2 class="status_word">Would you like to create blog</h2>
+        <!-- <form action="/create" method="POST"> -->
+            <input type="submit" class="req_create" value="Create blog">
+        <!-- </form> -->
+    </div>
+
+    <div class="create_blog">
+        <form id="myForm">
+            <div class="row">
+                <div class="col">
+                  <label for="topic_name" class="form-label">Topic Name</label>
+                  <input type="text" class="form-control" id="topic" placeholder="Topic Name" aria-label="Topic Name">
+                </div>
+                <div class="col">
+                  <label for="your_name" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Your Name" aria-label="Your Name">
+                </div>
+            </div>
+            <div class="mb-3 mt-4">
+                <label for="forBlog" class="form-label">Write Blog</label>
+                <textarea class="form-control" id="content" rows="5"></textarea>
+            </div>
+            <div class="final_input">
+                <input type="submit" class="req_submit" value="Submit blog">
+                <input type="cancel" class="req_cancel" value="Cancel">
+            </div>
+        </form>
+    </div>
+
+    <div class="blog-container">
+    <div class="blog eg_blog">
+        <span class="topic_name">Health</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam incidunt vero accusamus est illum. Quos tenetur molestiae, sapiente fugit id sequi, aliquam dolorem iure similique possimus ex nesciunt dicta dolores quidem eveniet? Provident, sapiente corporis cumque neque atque sit deleniti?</p>
+        
+        <div class="last_row">
+            <span class="author_date">Shubham Jadhav |  Wed, 12/06/24</span>
+            <div class="change_icons">
+                <img src="/images/pen.png" class="edit_icon" alt="edit">
+                <img src="/images/bin.png" class="delete_icon" alt="delete">
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

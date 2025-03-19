@@ -1,0 +1,3 @@
+Hello from NodeJS !
+new text : My name is Shubham Jadhav
+inside txt file

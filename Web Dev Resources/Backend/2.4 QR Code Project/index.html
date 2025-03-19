@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>QR Generator</title>
+</head>
+<body>
+    <h1>QR Generator</h1>
+    <div class="content">
+        <h3 class="inputh3">Input Text</h3>
+        <h3 class="outputh3">Output QR</h3>
+        <div class="inputtext">
+            <textarea type="text" placeholder="Write input here for QR ...."></textarea>
+        </div>
+        <div class="displayqr">
+            <img src=".\cartoon_pointing_left.jpg" alt="QR image">
+        </div>
+    </div>
+
+    <button class="btn" id="genbtn">Generate QR</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="module" src="index.js"></script>
+
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>

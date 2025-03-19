@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Suggestion</title>
+</head>
+<body>
+    <!-- instead of writting logic here we can also do it in index.js  -->
+    <!-- instead of writting logic here we can also do it in index.js  -->
+    <!-- instead of writting logic here we can also do it in index.js  -->
+    <!-- and just pass variable and needed info only -->
+
+    <% 
+    const date = new Date();
+    const dayIndex = date.getDay();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const day = daysOfWeek[dayIndex];
+    %>
+    <h2>
+        Good Morning <%= name%>
+    </h2>
+    <h3>
+        Today is <%= day%>
+    </h3>
+    <% if (day == 'Saturday' || day == 'Sunday') { %>
+        <h3>
+            It's Weekend have fun.
+        </h3>
+    <% } else { %>
+        <h3>
+            It's weekday work hard.
+        </h3>
+    <% } %>
+     
+<script src="index.js"></script>
+</body>
+</html>

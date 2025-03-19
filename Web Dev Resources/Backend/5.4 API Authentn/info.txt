@@ -1,0 +1,14 @@
+API Authentication
+
+username : shubham31
+password : secret_api
+
+Authentication Key 
+
+{
+  "apiKey": "a934c90f-37cc-4728-b972-4a1bfe51f5e2"
+}
+
+{
+  "token": "31c2bb22-47ee-49a8-a53d-c17fe8c85c84"
+}

@@ -1,0 +1,12 @@
+h1 {
+  color: red;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.nice {
+  color: greenyellow;
+  font-weight: bolder;
+}

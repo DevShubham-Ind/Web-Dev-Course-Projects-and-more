@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "body-parser": "^2.0.0-beta.2",
+    "compile-run": "^2.3.4",
+    "express": "^5.0.0-beta.2"
+  },
+  "name": "n_queen_web",
+  "version": "1.0.0",
+  "description": "Website to compile cpp code and give output (First Try)",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shubham Jadhav",
+  "license": "ISC"
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Taco Recipes</title>
+  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+
+<body>
+  <h1>Taco Town 🌮</h1>
+
+  <form action="/recipe" method="POST" class="buttons">
+    <button type="submit" value="paneer" name="choice">🧀</button>
+    <button type="submit" value="vegetable" name="choice">🥗</button>
+    <button type="submit" value="mushroom" name="choice">🍄</button>
+</form>
+
+  <div id="recipeContainer" class="hidden">
+
+    <!-- If no recipe yet, show: -->
+    <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
+    <% if (!locals.ingres) { %>
+
+      <h2>Pick your favourite taco ingredient 👆</h2>
+
+    <% } else { %>
+
+      <h3>Ingredients: </h3>
+      <ul id="ingredientsList">
+        <li><%= ingres.protein.name %>, <%= ingres.protein.preparation %></li>
+        <li><%= ingres.salsa.name %>, <%= ingres.salsa.spiciness %></li>
+        
+        <% if (ingres.toppings && ingres.toppings.length > 0) { %>
+          <% for (let i = 0; i < ingres.toppings.length; i++) { %>
+            <li><%= ingres.toppings[i].quantity %> of <%= ingres.toppings[i].name %></li>
+          <% } %>
+        <% } else { %>
+          <li>No toppings available</li>
+        <% } %>
+
+      </ul>
+
+    <% } %>
+
+
+  </div>
+</body>
+
+</html>

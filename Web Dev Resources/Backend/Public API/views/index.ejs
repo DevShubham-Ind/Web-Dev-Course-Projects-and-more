@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" class="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Movie Magic</title>
+</head>
+<body>
+    <header class="webTitle">Movie Magic</header>
+    <div class="container">
+        <div class="inputDiv">
+            <img src="/images/movie_camera_icon.png" class="camera_icon" alt="camera">
+            <form action="/search" method="POST">
+                <div class="form-element">
+                    <label for="title">Movie Title</label>
+                    <input type="text" name="title">
+                </div>
+                <div class="form-element">
+                    <label for="year">Year</label>
+                    <input type="text" name="year">
+                </div>
+                <div class="form-element">
+                    <button type="submit" class="searchbtn">Search</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="outputDiv">
+            <% if(locals.data) { %>
+                <div class="posterDiv">
+                    <img src="<%=data.Poster%>" class="moviePoster" alt="movie_poster">
+                </div>
+                <div class="infoDiv">
+                
+                <div class="upperDiv">
+                <div class="leftSmallDiv">
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Title</span>
+                        <span class="attr attr_value"><%=data.Title%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Year</span>
+                        <span class="attr attr_value"><%=data.Year%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Released Date</span>
+                        <span class="attr attr_value"><%=data.Released%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Runtime</span>
+                        <span class="attr attr_value"><%=data.Runtime%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Genre</span>
+                        <span class="attr attr_value"><%=data.Genre%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Language</span>
+                        <span class="attr attr_value"><%=data.Language%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Country</span>
+                        <span class="attr attr_value"><%=data.Country%></span>
+                    </div>
+                </div>
+                
+                <div class="rightSmallDiv">
+                    <div class="smallAttr">
+                        <span class="attr attr_key">IMDB Ratings</span>
+                        <span class="attr attr_value"><%=data.imdbRating%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">IMDB Votes</span>
+                        <span class="attr attr_value"><%=data.imdbVotes%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">BoxOffice</span>
+                        <span class="attr attr_value"><%=data.BoxOffice%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Director</span>
+                        <span class="attr attr_value"><%=data.Director%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Writer</span>
+                        <span class="attr attr_value"><%=data.Writer%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Actors</span>
+                        <span class="attr attr_value"><%=data.Actors%></span>
+                    </div>
+                    <div class="smallAttr">
+                        <span class="attr attr_key">Awards</span>
+                        <span class="attr attr_value"><%=data.Awards%></span>
+                    </div>
+                </div>
+                </div> <!-- end of upper div -->
+
+                 <div class="lowerDiv">
+                    <p><b>Plot: </b> <%= data.Plot%></p>
+                 </div> <!-- end of lower div -->
+
+                </div> <!-- end of info div -->
+
+                </div>
+            <% } else { %>
+                <span class="errorSpan"><%= locals.error%></span>
+            <% } %>
+        </div>
+    </div>
+    
+</body>
+</html>

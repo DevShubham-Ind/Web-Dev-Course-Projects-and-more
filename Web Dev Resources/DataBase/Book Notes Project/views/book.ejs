@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book Notes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/book.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <header><h1>Book Notes</h1></header>
+
+    <div class="container">
+        <div class="addHeading">
+            <h2><img class="lantern_icon" src="/images/lantern_icon.png" alt="showcase icon"><%= tabTitle %></h2>
+            <p class="statusMsg" ><img src="/images/checked_larger_than_small.png" class="checkImg" alt="check"><%= statusMsg %></p>
+        </div>
+        <div class="content">
+            <div class="bookDiv"><img src="<%= bookUrl %>" class="bookCover" alt="Book cover"></div>
+
+            <div class="formDiv">
+            <form method="post">
+            <div class="row">
+                <div class="col-9">
+                    <label for="title">Book Title</label>
+                    <input type="text" name="title" class="form-control title" placeholder="Book Title">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="Genre">Genre</label>
+                    <select id="Genre" name="genre" class="form-control genre">
+                        <option selected>Choose...</option>
+                        <% for( let genre of genres) { %>
+                            <option><%= genre %></option>
+                        <% } %>
+                      <!-- <option>...</option> -->
+                    </select>
+                  </div>
+            </div>
+            <div class="row">
+              <div class="col-9">
+                <label for="inputZip">Author Name</label>
+                <input type="text" name="author" class="form-control author" placeholder="Author Name">
+              </div>
+              <div class="col-3">
+                <label for="inputZip">Publish Year</label>
+                <input type="number" name="publish_year" class="form-control publish_year" placeholder="Publish Year">
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="bookNote">Note</label>
+                <textarea class="form-control bookNote" name="bookNote" id="bookNote" rows="7" placeholder="Write anything you want ..."></textarea>
+            </div>
+            <div class="d-flex flex-wrap justify-content-around">
+                <!-- <a href="/" class="homeBtn"><p>Back to Home</p></a> -->
+                <button type="button" class="btn" onclick="window.location.href='/'"><img src="/images/left-arrow (3).png" alt="back_icon"> Back</button>
+
+                <% if (tabTitle === "Book") { %>
+                  <button type="submit" class="btn" formaction="/Request_edit"><img src="/images/pencil (1).png" alt="edit_icon"> Edit</button>
+                  <button type="submit" class="btn" formaction="/Request_delete"><img src="/images/delete (3).png" alt="delete_icon"> Delete</button>
+                  <% } else if (tabTitle === "Edit Info") { %>
+                    <button type="submit" class="btn" formaction="/Request_saveInfo">Save</button>
+                    <% } else { %>
+                      <button type="submit" class="btn" formaction="/submit_newNote"><%= submit_button %> | <%= tabTitle %></button>
+                      <% } %>
+                                     
+            </div>
+          </form>
+        </div>
+        </div>
+    </div>
+
+  <script>
+    const tabTitle = "<%= tabTitle %>";
+    const statusMsg = "<%= statusMsg %>";
+
+    if(tabTitle == "Book"){
+      document.querySelector(".title").value = "<%=bookData.title %>";
+      document.querySelector(".genre").value = "<%=bookData.genre %>";
+      document.querySelector(".author").value = "<%=bookData.author %>";
+      document.querySelector(".publish_year").value = "<%=bookData.publish_year %>";
+      document.querySelector(".bookNote").value = "<%=bookData.bookNote %>";
+
+      document.querySelector(".title").disabled = true;
+      document.querySelector(".genre").disabled = true;
+      document.querySelector(".author").disabled = true;
+      document.querySelector(".publish_year").disabled = true;
+      document.querySelector(".bookNote").disabled = true;
+    }
+
+    if(tabTitle == "Edit Info"){
+      document.querySelector(".title").value = "<%=bookData.title %>";
+      document.querySelector(".genre").value = "<%=bookData.genre %>";
+      document.querySelector(".author").value = "<%=bookData.author %>";
+      document.querySelector(".publish_year").value = "<%=bookData.publish_year %>";
+      document.querySelector(".bookNote").value = "<%=bookData.bookNote %>";
+    }
+
+    $(document).ready(function(){
+      if(statusMsg){
+        console.log("Fading out ...");
+        const msg = $(".statusMsg");
+        msg.fadeIn(400);
+        msg.show();
+        msg.fadeOut(4000);
+      }
+    });
+  </script>
+
+</body>
+</html>

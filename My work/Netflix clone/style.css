@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=JetBrains+Mono:wght@300&family=Libre+Baskerville&family=Merriweather+Sans:wght@600&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.main{
+    background-image: url("./assets/main_background.jpg");
+    height: 90vh;
+    position: relative;
+}
+
+.nav{
+    margin-left: 13%;
+    margin-right: 10%;
+    width: 75%;
+    height: 60px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    position: absolute;
+    z-index: 4;
+}
+
+.netflixLogo{
+    color: rgb(229,9,20);
+    fill : currentColor;
+    height: 40px;
+    display: block;
+}
+.eng_signin{
+    display : block;
+
+}
+
+.eng_signin button{
+    height: 32px;
+    width: 100px;
+}
+
+.box{
+    height: 90vh;
+    width: 100%;
+    background-color: black;
+    opacity: 0.35;
+    position: relative;
+    z-index: 2;
+}
+
+.hero{
+    height: 100%;
+    z-index: 4;
+    position: relative;
+    display: block;
+}
+
+.firsthero{
+    color: greenyellow;
+    font-family: 'Merriweather Sans', sans-serif;
+}

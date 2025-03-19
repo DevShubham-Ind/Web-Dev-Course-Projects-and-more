@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Dice Game</title>
+</head>
+<body>
+    <div class="title">
+        <h1>The Dice Game</h1>
+    </div>
+
+    <div class="wholebody">
+        <div class="scoreboard">
+            <h3>Score Board</h3>  
+            <div class="record">
+                <div class="compTitle">Computer</div>
+                <div class="youTitle">You</div>
+                <div class="matchNo1">1</div>
+                <div class="matchNo2">2</div>
+                <div class="matchNo3">3</div>
+                <div class="matchNo4">4</div>
+                <div class="matchNo5">5</div>
+                <div class="matchNo6">6</div>
+                <div class="matchNo7">7</div>
+                <div class="matchNo8">8</div>
+                <div class="matchNo9">9</div>
+                <div class="matchNo10">10</div>
+
+                <div class="comp3">--</div>
+                <div class="comp2">--</div>
+                <div class="comp4">--</div>
+                <div class="comp5">--</div>
+                <div class="comp6">--</div>
+                <div class="comp1">--</div>
+                <div class="comp7">--</div>
+                <div class="comp8">--</div>
+                <div class="comp9">--</div>
+                <div class="comp10">--</div>
+
+                <div class="you1">--</div>
+                <div class="you2">--</div>
+                <div class="you3">--</div>
+                <div class="you4">--</div>
+                <div class="you5">--</div>
+                <div class="you6">--</div>
+                <div class="you7">--</div>
+                <div class="you8">--</div>
+                <div class="you9">--</div>
+                <div class="you10">--</div>
+
+                <div class="total">Total win</div>
+                <div class="compTotal">--</div>
+                <div class="youTotal">--</div>
+            </div>  
+
+            <div class="trialNoDisplay">Trails left : </div>
+        </div>
+
+        <div class="ground">
+            <div class="player1">
+                <h3>Computer</h3>
+            </div>
+            <div class="player2">
+                <h3>You</h3>
+            </div>
+            <div class="player1panel">
+                <img src="" alt="player1dice">
+                <h3></h3>
+            </div>
+            <div class="player2panel">
+                <img src="" alt="player2dice">
+                <h3></h3>
+            </div>
+            <h3 class="scoretitle" style="color: white;">Score</h3>
+            <div class="result">
+                <img class="player1result" src="" alt="player1result">
+                <h3  class="player_result" >____ is winnerrr</h3>
+                <img class="player2result" src="" alt="player2result">
+            </div>
+        </div>
+    </div>
+
+    <button onclick="reload()" id="reloadbtn">Start Game</button>
+    
+    <div class="progress-bar statusBar"></div>
+    <script src="index.js"></script>
+</body>
+</html>

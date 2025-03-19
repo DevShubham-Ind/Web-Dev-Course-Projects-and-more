@@ -1,0 +1,39 @@
+# Ignore Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore build folders
+dist/
+build/
+.out/
+.next/
+.vercel/
+.netlify/
+
+# Ignore environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Ignore log files
+*.log
+logs/
+debug.log
+
+# Ignore OS & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Ignore generated files
+coverage/
+*.map
+public/

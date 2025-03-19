@@ -1,0 +1,39 @@
+body{
+    background-color: azure;
+    margin: 7%;
+    justify-content: center;
+    align-items: center;
+}
+
+.enrollbtn {
+    background-color: rebeccapurple;
+    border-radius: 100px;
+    margin-top: 50px;
+}
+
+.enrollform{
+    width: 35%;
+    padding: 10px;
+    background-color: darkgray;
+    border-radius: 10px;
+}
+
+.form-group{
+    margin:5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#ageDiv, #heightDiv{
+    width: 35%;
+}
+
+label{
+    font-weight: 500;
+}
+
+.enroll_success{
+    font-size: 20px;
+    color:greenyellow;
+    font-weight: 600;
+}

@@ -1,0 +1,146 @@
+</main>
+
+<footer>
+  <p>Copyright © <%= new Date().getFullYear() %></p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(function() {
+    $(window).scroll(function() {
+      var amount = $(this).scrollTop();
+      // console.log(`scroll: ${amount}`);
+      if ($(this).scrollTop() > 360) {
+        $('#scrollTop').fadeIn();
+      } else {
+        $('#scrollTop').fadeOut();
+      }
+    });
+    $('#scrollTop').click(function() {
+      $("html, body").animate({
+        scrollTop: 0
+      }, 600);
+      return false;
+    });
+  });
+
+  function closeForm(){
+    setTimeout(function(){
+      $('.create_blog').slideUp( "slow" );
+      }, 500);
+
+    setTimeout(function(){
+    $('.statusDiv').slideDown( "slow" );
+    }, 1200);
+  }
+  function clearForm(){
+    document.getElementById('name').value = "";
+    document.getElementById('topic').value = "";
+    document.getElementById('content').value = "";
+  }
+
+  $(".req_create").on( "click", function() {
+    setTimeout(function(){
+      $('.statusDiv').slideUp( "slow" );;
+      }, 500);
+
+    setTimeout(function(){
+      $('.create_blog').slideDown( "slow" );
+      console.log("Blog form displayed");
+      }, 1200);
+    
+      // alert( "Handler for `click` called." );
+  } );
+
+  $(".req_cancel").on("click", closeForm);
+
+  document.querySelector('.req_submit').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      console.log("Click on Submit Btn");
+
+      // Get the form data
+      const name = document.getElementById('name').value;
+      const topic = document.getElementById('topic').value;
+      const content = document.getElementById('content').value;
+      const info = {
+          name: name,
+          topic: topic,
+          content: content
+      };
+
+      // Make the POST request
+      fetch('/submit', {
+          method: 'POST', // Specify the request method
+          headers: {
+              'Content-Type': 'application/json' // Specify the content type
+          },
+          body: JSON.stringify(info) // Convert the data object to a JSON string
+      })
+      .then(response => response.json()) // Parse the JSON from the response
+      .then(data => {
+          console.log('Success:', data); // Handle the response data
+          console.log("Adding Blog to Web Page ....");
+          var parent = document.querySelector(".blog-container");
+          const newDiv = document.createElement('div');
+          newDiv.classList.add('blog');
+          newDiv.style.display = "none";
+
+          console.log(`Topic: ${data.topic} | Name: ${data.name}`);
+          newDiv.innerHTML += `
+            <span class='topic_name'>${data.topic}</span>
+            <p>${data.content}</p>
+            <div class="last_row">
+                <span class="author_date">${data.name} |  ${data.fullDate}</span>
+                <div class="change_icons">
+                    <img src="/images/pen.png" id="edit_icon" alt="edit">
+                    <img src="/images/bin.png" id="delete_icon" alt="delete">
+                </div>
+            </div>`;
+
+          $(newDiv.innerHTML).on("click",'.delete_icon', function() {
+            $(this).slideUp(500);
+          })
+
+          if(parent.firstChild){
+            parent.insertBefore(newDiv, parent.firstChild);
+          }
+          else{
+            parent.appendChild(newDiv);
+          }
+
+          console.log("Blog added successfully !!!");
+          closeForm();
+          setTimeout(function(){
+            $(newDiv).slideDown( "slow" );
+          }, 1200);
+
+          setTimeout(clearForm, 2000);
+        })
+      .catch((error) => {
+          console.error('Error:', error); // Handle any errors
+      });
+  });
+
+  // Event delegation for delete icon on dynamically created blogs
+$('.blog-container').on('click', '.delete_icon', function() {
+    console.log('Delete icon clicked');
+
+    // Code to handle deleting the blog
+    const $grandParent = $(this).closest('.blog');
+    if ($grandParent.length) {
+        $grandParent.slideUp('slow', function() {
+            $grandParent.remove();
+        });
+    } else {
+        console.log('Grand Parent element not found');
+    }
+});
+
+
+
+</script>
+</body>
+
+</html>

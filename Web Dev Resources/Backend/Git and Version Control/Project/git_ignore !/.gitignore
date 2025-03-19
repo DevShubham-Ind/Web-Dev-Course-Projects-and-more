@@ -1,0 +1,4 @@
+# file names written in this file will be
+# ignored by git 
+
+secrets.txt
